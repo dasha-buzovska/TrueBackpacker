@@ -1,0 +1,50 @@
+buildscript {
+    ext {
+        springBootVersion = '1.4.3.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+
+jar {
+    baseName = 'boot-gradle'
+    version = '0.0.1-SNAPSHOT'
+}
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+
+dependencies {
+    compile group: 'org.springframework.boot', name: 'spring-boot-gradle-plugin', version: '2.0.4.RELEASE', ext: 'pom'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-web'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-freemarker', version: '1.1.7.RELEASE'
+//    compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa', version: '2.0.5.RELEASE'
+    compile group: 'org.hsqldb', name: 'hsqldb', version: '2.4.1'
+    compile group: 'mysql', name: 'mysql-connector-java', version: '5.1.13'
+    compile(
+            'org.springframework.boot:spring-boot-starter-jdbc'
+    )
+//    compile group: 'org.springframework.boot', name: 'spring-boot-starter-freemarker', version: '1.1.7.RELEASE'
+//    compile group: 'org.springframework.boot', name: 'spring-boot-gradle-plugin', version: '2.0.4.RELEASE', ext: 'pom'
+//    compile group: 'mysql', name: 'mysql-connector-java', version: '5.1.13'
+//    compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa', version: '2.0.5.RELEASE'
+//    compile(
+//            'org.springframework.boot:spring-boot-starter-web',
+//            'org.apache.tomcat.embed:tomcat-embed-jasper'
+//            'javax.servlet:jstlr',
+//            'org.springframework.boot:spring-boot-starter-jdbc'
+//    )
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+}
